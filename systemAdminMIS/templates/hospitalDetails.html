@@ -1,0 +1,64 @@
+{% extends 'layouts/layout1.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+       <div class="section">
+         <form class="form-style-7" action="updateHospitalDetails" enctype="multipart/form-data" method="POST">
+         <h1>Edit The Hospital details</h1>
+         <span class="success">{{updateMessage}}</span>
+         <ul>
+           <li>
+               <label for="hospital_name">Full Hospital Name</label>
+               <input type="text" name="hospital_name" value="{{hospitalDetails[0]}}" minlength="3" maxlength="100">
+               <span>Enter "Kuluva" if the hospital is called "Kuluva Hospital", and "Kuluva Referral" if the hospital is called "Kuluva Referral Hospital"
+               NB: Don't attach the word "Hospital to the name"</span>
+           </li>
+           <li>
+               <label for="hospital_physical_address">Hospital Physical Address</label>
+               <input type="text" name="hospital_physical_address" value="{{hospitalDetails[1]}}" minlength="3" maxlength="100">
+               <span>Country-Region-District/etc</span>
+           </li>
+           <li>
+               <label for="hospital_registration_no">Registration Number</label>
+               <input type="text" name="hospital_registration_no" value="{{hospitalDetails[2]}}" maxlength="100">
+               <span>Enter The Hospital's Registration Number</span>
+           </li>
+         <li>
+             <label for="license_no">License Number</label>
+             <input type="text" name="license_no" value="{{hospitalDetails[3]}}" maxlength="100">
+             <span>Enter the Hospital's License Number</span>
+         </li>
+         <li>
+             <label for="hospital_email">Official Email</label>
+             <input type="email" name="hospital_email" value="{{hospitalDetails[7]}}" maxlength="100">
+             <span>Enter the official hospital Email</span>
+         </li>
+         <li>
+             <label for="hospital_tel">Official Telephone</label>
+             <input type="tel" name="hospital_tel" value="{{hospitalDetails[8]}}" maxlength="100">
+             <span>It would be better if this is used at front Desk</span>
+         </li>
+         <li>
+             <label for="hospital_box_no">Official Box Number</label>
+             <input type="text" name="hospital_box_no" value="{{hospitalDetails[9]}}" maxlength="100">
+             <span>This must be official box number</span>
+         </li>
+         <li>
+             <label for="date_of_business_onset">When Did the Hospital Start Operating?</label>
+             <input type="text" name="date_of_business_onset" value="{{hospitalDetails[4]}}" maxlength="100" id="datepicker">
+             <span>Select the date when the hospital started to officially operating by clicking inside the text box</span>
+         </li>
+         <li>
+             <label for="hospital_logo">Hospital Logo</label>
+             <img src="static/images/system/hospitalLogo.PNG" class="hospitalLogoPreview" alt="No Logo">
+               <input type='file' name='hospitalLogo' accept='image/*' size='36%' class="input-lg"
+             style='height:35px;' value='file'>
+             <span>Upload Hospital Logo</span>
+         </li>
+         <li>
+             <button type="submit">Save</button>
+         </li>
+         </ul>
+         </form>
+      </div>
+{% endblock %}

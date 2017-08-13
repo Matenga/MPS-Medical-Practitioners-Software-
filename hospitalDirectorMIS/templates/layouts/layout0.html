@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="static/javascripts/jquery.min.js"></script>
+  <script src="static/javascripts/jquery-1.12.4.js"></script>
+  <script src="static/jquery-ui-1.12.0-rc.2/jquery-ui.js"></script>
+  <link href="static/jquery-ui-1.12.0-rc.2/jquery-ui.css" rel="stylesheet">
+  <script src="static/jquery-ui-1.12.0-rc.2/jquery-ui.css"></script>
+  <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/styles/style.css">
+  <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">
+  <script>
+$( function() {
+  $( ".datepicker" ).datepicker();
+} );
+</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row hospitalSection">
+      <img src="static/images/system/hospitalLogo.PNG" class="hospitalLogo">
+       <u><span class="hospitalName">{{hospitalDetails[0]}} Hospital - {{hospitalDetails[1]}}</span></u>
+       <span ></span>
+    </div>
+    <div class="navbar-header">
+       <div class="col-md-4">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">MPS</a>
+      </div>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="col-md-8 menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Recruitment<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="recruitDoctor">Recruit Doctor</a></li>
+              <li><a href="recruitNurse">Recruit Nurse</a></li>
+              <li><a href="#section42">Recruit Mid-Wife</a></li>
+              <li><a href="recruitClinician">Recruit Clinician</a></li>
+              <li><a href="recruitLaboratorist">Recruit Laboratorist</a></li>
+              <li><a href="recruitPharmacist">Recruit Pharmacist</a></li>
+              <li><a href="recruitStorePersonnel">Recruit Store Personnel</a></li>
+              <li><a href="#section42">Recruit Receptionist</a></li>
+              <li><a href="#section42">Recruit Other Staffs</a></li>
+              <li><a href="#section42">Recruitment Statistics</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Staff <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Active Staff</a></li>
+              <li><a href="#section42">All Staff</a></li>
+              <li><a href="viewAvailableDoctors">Doctors</a></li>
+              <li><a href="viewAvailableNurses">Nurses</a></li>
+              <li><a href="#section42">Mid-wives</a></li>
+              <li><a href="#">Clinicians</a></li>
+              <li><a href="viewAvailableLaboratorists">Laboratorists</a></li>
+              <li><a href="viewAvailablePharmacists">Pharmacists</a></li>
+              <li><a href="viewAvailableStorePersonnels">Store Personnels</a></li>
+              <li><a href="#section42">Receptionists</a></li>
+              <li><a href="#section42">Other Staffs</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Roaster<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Active Roaster</a></li>
+              <li><a href="#section42">All Roaster</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Leave<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Active Leaves</a></li>
+              <li><a href="#section42">Applications</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Departmental</a></li>
+              <li><a href="#section42">General</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="/logOut"><span class="glyphicon glyphicon-log-out"></span> signout</a></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+</nav>
+<!-- sideLeft -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-3 sideLeft">
+    {% if message0[0] == "MPS-DefaultAdmin" %}
+    <div class="profile">
+    <div class="profile-title"> <h1 class="module-title">Human Resource</h1>
+      <h3>In-Built System Administrator</h3><br/>
+    </div>
+    <div class="profil-image">
+    <img src="static/images/system/systemadmin.png" class="profil-image">
+    </div>
+    <div class="profile-footer">
+    </div>
+    </div>
+  {% elif message0[0]=="MPS-BackDoor" %}
+      <div class="profile">
+      <div class="profile-title"> <h1 class="module-title">Human Resource</h1>
+        <h3>{{message0[1]}}</h3><br/>
+      </div>
+      <div class="profil-image">
+        {% if message0[1]=="Adriko Debo Joel" %}
+            <img src="static/images/system/joel.jpg" class="profil-image">
+        {% elif message0[1]=="Ayikoyo Charles" %}
+            <img src="static/images/system/charles.jpg" class="profil-image">
+        {% else %}
+            <img src="static/images/system/ivan.jpg" class="profil-image">
+        {% endif %}
+      </div>
+      <div class="profile-footer">
+      </div>
+      </div>
+  {% else %}
+      <div class="profile">
+      <div class="profile-title"> <h1 class="module-title">Human Resource</h1>
+        <h3>{{message0[0]}}</h3><br/>
+      </div>
+      <div class="profil-image">
+      <img src="static/images/staff/{{message0[13]}}.PNG" class="profil-image">
+      </div>
+      <div class="profile-footer">
+        <a href="#" class="mediumLink">Edit Profile</a>
+      </div>
+      </div>
+      <div class="section">
+      <h5> Pinned menu</h5>
+      <ul>
+      <li><a href="#">messages <span>(2)</span></a></li>
+      <li><a href="#">Visitors <span>(2)</span></a></li>
+      <li><a href="#">messages <span>(2)</span></a></li>
+      <li><a href="#">chats <span>(2)</span></a></li>
+      </ul>
+
+      </div>
+      <div class="section">
+      <h3>To Do List</h3>
+      <ul>
+      <li><a href="#">Visiting John</a></li>
+      <li><a href="#">Make appointment with Jackson</a></li>
+      <li><a href="#">Write a novel</a></li>
+      </ul>
+
+      </div>
+  {% endif %}
+</div>
+<!--End sideLeft -->
+<div class="col-md-9">
+{% block content %}{% endblock %}
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row footer">
+<div class="col-md-3"></div>
+<div class="col-md-3">
+<p class='footer-text' style="margin-top: 50px;">Designed by  Adriko Debo Joel</p>
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-3"></div>
+
+</div>
+
+</div>
+</body>
+</html>

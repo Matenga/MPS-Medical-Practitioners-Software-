@@ -1,0 +1,34 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<div class="col-md-5 login-form">
+<div class="section">
+  <div id="login">
+    {{welcome}}
+  <h1 id="header">Serial Number Generation Detail</h1>
+  {% if message ==1 %}
+  <span class="operandLeft">The New System Serial Is</span><span class="operator">:</span><span class="operandRight">{{mySerial}} </span>
+   {% endif %}
+   {% if message ==0 %}
+   <span class="ooperandRight">Invalid Serial.Config File</span><span class="operator">!!!</span>
+    {% endif %}
+    {% if message ==-1 %}
+    <span class="operandRight">The Serial.Config file is Empty</span><span class="operator">!!!</span>
+     {% endif %}
+     {% if message ==-2 %}
+     <span class="operandRight">The Serial.Config is Lacking in the root</span><span class="operator">!!!</span>
+      {% endif %}
+  <form action="index" method="POST">
+  <button type="submit butLink" class="btn btn-link">Go To Home</button>
+</form>
+<form action="index" method="POST">
+<button type="submit butLink" class="btn btn-link">Try Again</button>
+</form>
+<form action="index" method="POST">
+<button type="submit butLink" class="btn btn-link">Main Menu</button>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

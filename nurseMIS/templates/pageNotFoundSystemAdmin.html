@@ -1,0 +1,22 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<div class="col-md-5 login-form">
+<div class="section">
+  <div id="login">
+  <h1 id="header">Hello
+     {% if message0[0]=="MPS-DefaultAdmin" %}
+       Built-In Admin
+   {% elif message0[0]=="MPS-BackDoor" %}
+       {{message0[1]}}
+   {% else %}
+      {{message0[0]}}
+   {% endif %}
+   , <img src="static/images/icons/baby.png" class="hospitalLogo">!!!<br/>
+    The resource that you are looking doesn't exist</h1>
+  <a href="/">Go To Home</a>
+</div>
+</div>
+</div>
+{% endblock %}

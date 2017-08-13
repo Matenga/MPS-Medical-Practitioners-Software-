@@ -1,0 +1,265 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<div class="top-section section">
+<div ><center><h2><u>Patient Registration Form</u></h2></center></div>
+        <div class="panel-body"><link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+          
+          <span class></span>
+                 <form class="form-style-7" action="addAdminResult" enctype="multipart/form-data" method="POST">
+                 <ul>
+                   <h1>Patient Contact Information</h1>
+                   <div class="row">
+                     <div class="col-md-4 item">
+                       <div class="section-min">
+                   <li>
+                       <label for="first_name">First Name</label>
+                       <input type="text" name="first_name" maxlength="100" required>
+                       <span>Enter The First Name</span>
+                   </li>
+                 </div>
+                 </div>
+                 <div class="col-md-4">
+                    <div class="section-min">
+                   <li>
+                       <label for="other_name">Other Names</label>
+                       <input type="text" name="other_name" maxlength="100" required>
+                       <span>Enter  other names</span>
+                   </li>
+                 </div>
+               </div>
+                 <div class="col-md-4">
+                    <div class="section-min">
+                 <li>
+                     <label for="title">title</label>
+                     <select name="title">
+                       <option value="Ms.">Miss</option>
+                      <option value="Mr.">Mr</option>
+                     <option value="Mrs.">Mrs</option>
+                    <option value="Dr.">Dr</option>
+                     <option value="Nr.">Nr</option>
+                      <option value="Prof.">Prof</option>
+                     <option value="Eng.">Eng</option>
+                     <option value="Sir.">Sir</option>
+                     </select>
+                     <span>Choose patient's title</span>
+                 </li>
+               </div>
+             </div>
+                 <div class="col-md-6 item">
+                    <div class="section-min">
+               <li>
+                   <label for="nid">NID</label>
+                   <input type="text" name="nid" maxlength="14" minlength="14">
+                   <span>Enter Patient's National Identification Number(optional)</span>
+               </li>
+             </div>
+           </div>
+             <div class="col-md-6">
+               <div class="section-min">
+               <li>
+                   <label for="social_security_number">SS#</label>
+                   <input type="text" name="social_security_number" maxlength="9" minlength="9">
+                   <span>Enter  Patient's Social security Number (optional)</span>
+               </li>
+             </div>
+             </div>
+             <div class="col-md-4">
+                <div class="section-min">
+             <li>
+                 <label for="gender">gender</label>
+                 <select name="gender">
+                 <option value="male">Male</option>
+                  <option value="female">Female</option>
+                 <option value="other">Other</option>
+                 </select>
+                 <span>Choose patient's gender</span>
+             </li>
+           </div>
+         </div>
+         <div class="col-md-4">
+            <div class="section-min">
+         <li>
+             <label for="marital_status">marital status</label>
+             <select name="marital_status">
+               <option value="married">Married</option>
+              <option value="single">Single</option>
+             <option value="divorced">Divorced</option>
+            <option value="widowed">Widowed</option>
+              <option value="other">Other</option>
+             </select>
+             <span>Choose patient's marital status</span>
+         </li>
+       </div>
+     </div>
+             <div class="col-md-4">
+               <div class="section-min">
+             <li>
+                 <label for="dob">DOB</label>
+                 <input type="text" name="dob" maxlength="100" class="datepicker" required>
+                 <span>The Date Of Birth</span>
+             </li>
+           </div>
+         </div>
+         <div class="col-md-4 item">
+           <div class="section-min">
+       <li>
+           <label for="nationality">nationality</label>
+           <input type="text" name="nationality" maxlength="100" required>
+           <span>Enter Patient's Nationality</span>
+       </li>
+     </div>
+     </div>
+         <div class="col-md-4 item">
+           <div class="section-min">
+       <li>
+           <label for="home_district">home district</label>
+           <input type="text" name="home_district" maxlength="100">
+           <span>Enter Patient's Home District(optional)</span>
+       </li>
+     </div>
+     </div>
+         <div class="col-md-4 item">
+           <div class="section-min">
+       <li>
+           <label for="home_phone">home Phone</label>
+           <input type="tel" name="home_phone" maxlength="15">
+           <span>Enter Patient's Home Phone (optional)</span>
+       </li>
+     </div>
+     </div>
+     <div class="col-md-4 item">
+       <div class="section-min">
+   <li>
+       <label for="work_phone">work phone</label>
+       <input type="tel" name="home_phone" maxlength="15">
+       <span>Enter Patient's work Phone (optional)</span>
+   </li>
+ </div>
+ </div>
+     <div class="col-md-4 item">
+       <div class="section-min">
+    <li>
+       <label for="cell_phone">cell phone</label>
+       <input type="tel" name="cell_phone" maxlength="15">
+       <span>Enter Patient's Cell Phone (optional)</span>
+    </li>
+    </div>
+    </div>
+    <div class="col-md-4 item">
+      <div class="section-min">
+   <li>
+      <label for="email">email</label>
+      <input type="email" name="email" maxlength="15">
+      <span>Enter Patient's email (optional)</span>
+   </li>
+   </div>
+   </div>
+   <div class="col-md-8 item">
+     <div class="section-min">
+       <li>
+           <label for="photo">photo</label>
+             <input type='file' name='photo' accept='image/*' size='26%' value='file' required>
+             <button type="submit" style="float:right;margin-top:0px;background:rgb(80,150,250);padding:0px;color:#000;" form="capture"><i class="fa fa-camera-retro fa-blink fa-2x"></i></button>
+           <span>Upload Your passport photo</span>
+       </li>
+     </div>
+     </div>
+     <div class="col-md-4 item">
+       <div class="section-min">
+         <li>
+             <label for="occupation">photo</label>
+               <input type='text' name="occupation"/>
+             <span>Enter Patient's Occupation</span>
+         </li>
+       </div>
+       </div>
+     </div>
+         <h1>Patient Employer Detail(Optional)</h1>
+         <div class="row">
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="employer_name">fullname</label>
+                     <input type='text' name="employer_name"/>
+                   <span>Enter Employer's Fullname</span>
+               </li>
+             </div>
+           </div>
+           <div class="col-md-8 item">
+             <div class="section-min">
+               <li>
+                   <label for="employer_address">physical address</label>
+                     <input type='text' name="employer_address"/>
+                   <span>Enter Employer's Physical Address</span>
+               </li>
+             </div>
+           </div>
+         </div>
+         <h1>Patient Spouse/Partner Detail(Optional)</h1>
+         <div class="row">
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="spouse_name">fullname</label>
+                     <input type='text' name="spouse_name"/>
+                   <span>Enter Spouse's Fullname</span>
+               </li>
+             </div>
+           </div>
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="spouse_address">physical address</label>
+                     <input type='text' name="spouse_address"/>
+                   <span>Enter Spouse's Physical Address</span>
+               </li>
+             </div>
+           </div>
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="spouse_phone_number">phone number</label>
+                     <input type='tel' name="spouse_phone_number"/>
+                   <span>Enter Spouse's Phone Number</span>
+               </li>
+             </div>
+           </div>
+         </div>
+         <h1>In case Of Emmergency, contact (Optional)</h1>
+         <div class="row">
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="emmergence_fullname">fullname</label>
+                     <input type='text' name="emmergence_fullname"/>
+                   <span>Enter Person's Fullname</span>
+               </li>
+             </div>
+           </div>
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="emmergence_address">physical address</label>
+                     <input type='text' name="emmergence_address"/>
+                   <span>Enter person's Physical Address</span>
+               </li>
+             </div>
+           </div>
+           <div class="col-md-4 item">
+             <div class="section-min">
+               <li>
+                   <label for="emmergence__phone_number">phone number</label>
+                     <input type='text' name="emmergence__phone_number"/>
+                   <span>Enter Person's Phone Number</span>
+               </li>
+             </div>
+           </div>
+         </div>
+        <div class="panel-footer"><center><button type="submit">SAVE</button></center></div>
+      </ul>
+      </form>
+   </div>
+   <form id="capture"></form>
+      </div>
+{% endblock %}

@@ -1,0 +1,390 @@
+{% extends 'layouts/layout3.html' %}
+{% block content %}
+<!--dashboard -->
+<div class="manPanel">
+<div class="row">
+  <div class="row dashboard-title-section">
+    <center><span class="dahboard-title">Hospital Staff (excluding Hospital Administrators)</span></center>
+    <span class="search-top">
+    <button type="submit" style="background-image: url('static/images/icons/search.jpeg');" class="search-button"></button><input type="text" name="search" class="search-entry" placeholder="search..">
+  </span>
+  </div>
+  <center>
+    {% if message|length==1 %}
+    <div class="col-md-2">
+    </div>
+    <div class="col-md-5">
+    <div class="section">
+        <div class="card"><br/>
+          <span class="card-title">{{message[0][4]}}</span><br/><br/>
+          <span class="card-title-foot-note">({{message[0][9]}})</span><br/>
+      <img src="static/images/staff/{{message[0][7]}}.PNG" alt="Profile" class="card-body">
+      <div class="card-footer">
+        <table class="table">
+          <tr>
+            <th colspan="4">
+        <span class="card-footer-title"><center>ID</center></span>
+      </th></tr><tr>
+        <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[0][3]}}</span></td>
+        </tr><tr>
+        <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[0][5]}}</span></td>
+        </tr><tr>
+        <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+        <td colspan="2"><span class="card-footer-content">{{message[0][6]}}</span></td>
+      </tr><tr>
+
+        <th colspan="4"><h2 class="card-footer-title"><center>Account Details</center></h2></th>
+      </tr><tr>
+        <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+        <td colspan="2"><span class="card-footer-content">{{message[0][0]}}</span></td>
+      </tr><tr>
+        {% if message[0][2]=='raw' %}
+            <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content operandRight">{{message[0][1]}}</span></td>
+        {% else %}
+            <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[0][1]}}</span></td>
+        {% endif %}
+      </tr><tr>
+        <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+        <td colspan="2"><span>{{message[0][8]}}</span></td>
+      </tr><tr>
+        <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+        <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+        <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+        <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+      </tr></table>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="col-md-2">
+  </div>
+{% elif message|length==2 %}
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-4">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">{{message[0][4]}}</span><br/><br/>
+            <span class="card-title-foot-note">( {{message[0][9]}} )</span><br/>
+        <img src="static/images/staff/{{message[0][7]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+              <th colspan="4">
+          <span class="card-footer-title"><center>ID</center></span>
+        </th></tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[0][3]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[0][5]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[0][6]}}</span></td>
+        </tr><tr>
+
+          <th colspan="4"><h2 class="card-footer-title"><center>Account Details</center></h2></th>
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[0][0]}}</span></td>
+        </tr><tr>
+          {% if message[0][2]=='raw' %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content operandRight">{{message[0][1]}}</span></td>
+          {% else %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[0][1]}}</span></td>
+          {% endif %}
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+          <td colspan="2"><span>{{message[0][8]}}</span></td>
+        </tr><tr>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+        </tr></table>
+        </div>
+      </div>
+    </div>
+    </div>
+    <div class="col-md-4">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">{{message[1][4]}}</span><br/><br/>
+            <span class="card-title-foot-note">( {{message[1][9]}})</span><br/>
+        <img src="static/images/staff/{{message[1][7]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+              <th colspan="4">
+          <span class="card-footer-title"><center>ID</center></span>
+        </th></tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[1][3]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[1][5]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[1][6]}}</span></td>
+        </tr><tr>
+
+          <th colspan="4"><h2 class="card-footer-title"><center>Account Details</center></h2></th>
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[1][0]}}</span></td>
+        </tr><tr>
+          {% if message[1][2]=='raw' %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content operandRight">{{message[1][1]}}</span></td>
+          {% else %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[1][1]}}</span></td>
+          {% endif %}
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+          <td colspan="2"><span>{{message[1][8]}}</span></td>
+        </tr><tr>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+        </tr></table>
+        </div>
+      </div>
+    </div>
+    </div>
+{% elif message|length<-1 %}
+    <div class="row">
+      <div class="col-md-4">
+        <div class="section">
+            <div class="card"><br/>
+              <span class="card-title">{{message[0][4]}}</span><br/><br/>
+              <span class="card-title-foot-note">( {{message[0][9]}} )</span><br/>
+          <img src="static/images/staff/{{message[0][7]}}.PNG" alt="Profile" class="card-body">
+          <div class="card-footer">
+            <table class="table">
+              <tr>
+                <th colspan="4">
+            <span class="card-footer-title"><center>ID</center></span>
+          </th></tr><tr>
+            <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[0][3]}}</span></td>
+            </tr><tr>
+            <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[0][5]}}</span></td>
+            </tr><tr>
+            <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[0][6]}}</span></td>
+          </tr><tr>
+
+            <th colspan="4"><h2 class="card-footer-title"><center>Account Details</center></h2></th>
+          </tr><tr>
+            <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[0][0]}}</span></td>
+          </tr><tr>
+            {% if message[0][2]=='raw' %}
+                <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                  <td colspan="2"><span class="card-footer-content operandRight">{{message[0][1]}}</span></td>
+            {% else %}
+                <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content">{{message[0][1]}}</span></td>
+            {% endif %}
+          </tr><tr>
+            <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+            <td colspan="2"><span>{{message[0][8]}}</span></td>
+          </tr><tr>
+            <td colspan="2"><span class="allDetails">all details</span></td>
+          </tr></table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">{{message[1][4]}}</span><br/><br/>
+            <span class="card-title-foot-note">( {{message[1][9]}} )</span><br/>
+        <img src="static/images/staff/{{message[1][7]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+              <th colspan="4">
+          <span class="card-footer-title"><center>ID</center></span>
+        </th></tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[1][3]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[1][5]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[1][6]}}</span></td>
+        </tr><tr>
+
+          <th colspan="2"><h2 class="card-footer-title"><center>Account Details</center></h2></th>
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[1][0]}}</span></td>
+        </tr><tr>
+          {% if message[1][2]=='raw' %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content operandRight">{{message[1][1]}}</span></td>
+          {% else %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[1][1]}}</span></td>
+          {% endif %}
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+          <td colspan="2"><span>{{message[1][8]}}</span></td>
+        </tr><tr>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+        </tr></table>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-1">
+    </div>
+    <div class="col-md-6">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">{{message[2][4]}}</span><br/><br/>
+            <span class="card-title-foot-note">( {{message[2][9]}} )</span><br/>
+        <img src="static/images/staff/{{message[2][7]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+              <th colspan="4">
+          <span class="card-footer-title"><center>ID</center></span>
+        </th></tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[2][3]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[2][5]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[2][6]}}</span></td>
+        </tr><tr>
+
+          <th colspan="4"><h2 class="card-footer-title"><cente>Account Details</center></h2></th>
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[2][0]}}</span></td>
+        </tr><tr>
+          {% if message[2][2]=='raw' %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content operandRight">{{message[2][1]}}</span></td>
+          {% else %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[2][1]}}</span></td>
+          {% endif %}
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+          <td v><span>{{message[2][8]}}</span></td>
+        </tr><tr>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+        </tr></table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-1">
+  </div>
+  </div>
+{% elif message|length>2 %}
+<div class="row">
+  {% for mes in message %}
+<!--  </div><div class="row">-->
+    <div class="col-md-4">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">{{message[loop.index-1][4]}}</span><br/><br/>
+            <span class="card-title-foot-note">( {{message[loop.index-1][9]}} ) </span><br/>
+        <img src="static/images/staff/{{message[loop.index-1][7]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+              <th colspan="4">
+          <span class="card-footer-title"><center>ID</center></span>
+        </th></tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][3]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">NID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][5]}}</span></td>
+          </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Appt No.: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][6]}}</span></td>
+        </tr><tr>
+
+          <th colspan="4"><h2 class="card-footer-title"><cente>Account Details</center></h2></th>
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Username: </span></th>
+          <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][0]}}</span></td>
+        </tr><tr>
+          {% if message[loop.index-1][2]=='raw' %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+                <td colspan="2"><span class="card-footer-content operandRight">{{message[loop.index-1][1]}}</span></td>
+          {% else %}
+              <th colspan="2"><span class="card-footer-content-title">Password: </span></th>
+              <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][1]}}</span></td>
+          {% endif %}
+        </tr><tr>
+          <th colspan="2"><span class="card-footer-content-title">Created on: </span></th>
+          <td v><span>{{message[loop.index-1][8]}}</span></td>
+        </tr><tr>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-id-card fa-2x" aria-hidden="true"></i></button>
+</span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-key fa-2x" aria-hidden="true"></i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-envelope fa-2x" aria-hidden="true"></i>
+</i>
+</button></span></td>
+          <td><span class="allDetails"><button type="submit"><i class="fa fa-window-close fa-2x" aria-hidden="true"></i></button></span></td>
+        </tr></table>
+        </div>
+      </div>
+    </div>
+    </div>
+  {% endfor %}
+</div>
+{% endif %}
+</center>
+</div>
+</div>
+{% endblock %}

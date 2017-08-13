@@ -1,0 +1,18 @@
+{% extends 'layouts/layout1.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<div class="col-md-5 login-form">
+<div class="section">
+  <div id="login">
+  <h1 id="header">Login</h1>
+  {{unMatchedDetails}}
+  <form action="home" method="POST">
+    <input type="text" placeholder="Username" id="username" name="username"><br />
+    <input type="password" placeholder="Password" name="password_"><br />
+    <button type="submit">submit </button>
+  </form>
+</div>
+</div>
+</div>
+{% endblock %}

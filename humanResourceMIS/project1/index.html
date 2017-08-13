@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>template0</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="javascripts/jquery.min.js"></script>
+  <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="navbar-header">
+       <div class="col-md-4">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>                        
+      </button>
+      
+      <a class="navbar-brand" href="#">WebSiteName</a>
+      </div>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="col-md-8 menu">
+        <ul class="nav navbar-nav">
+          <li><a href="#section1">Menu 1</a></li>
+          <li><a href="#section2">Menu 2</a></li>
+          <li><a href="#section3">Menu 3</a></li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Menu 4 <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">SubMenu 4-1</a></li>
+              <li><a href="#section42">SubMenu 4-2</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Your Account</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> signout</a></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+</nav>  
+<!-- sideLeft -->  
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-3 sideLeft">
+  <div class="profile">
+  <h2 class="profile-title"> AMAKU JOSEPH</h2>
+  <div class="profil-image">
+  <img src="images/index.jpeg" class="profil-image">
+  </div>
+  <div class="profile-footer">
+    <a href="#" class="bigLink">Edit Profile</a>
+  </div>
+  </div>
+  <div class="section">
+  <h3> Pinned menu</h3>
+  <ul>
+  <li><a href="#">messages <span>(2)</span></a></li>
+  <li><a href="#">Visitors <span>(2)</span></a></li>
+  <li><a href="#">messages <span>(2)</span></a></li>
+  <li><a href="#">chats <span>(2)</span></a></li>
+  </ul>
+    
+  </div>
+  <div class="section">
+  <h3>To Do List</h3>
+  <ul>
+  <li><a href="#">Visiting John</a></li>
+  <li><a href="#">Make appointment with Jackson</a></li>
+  <li><a href="#">Write a novel</a></li>
+  </ul>
+    
+  </div>
+</div>
+<!--End sideLeft -->
+<!--dashboard -->
+<div class="col-md-8">
+<div class="manPanel">
+<div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+  
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+      <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+  
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+       <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+  
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+       <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+  
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+  </div>
+</div>
+</div>
+  
+</div>
+<div class="container-fluid">
+<div class="row footer">
+<div class="col-md-3"></div>
+<div class="col-md-3">
+<p class='footer-text' style="margin-top: 50px;">Designed by  Adriko Debo Joel</p>
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-3"></div>
+  
+</div>
+  
+</div>
+</body>
+</html>
+

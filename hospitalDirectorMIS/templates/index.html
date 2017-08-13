@@ -1,0 +1,75 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+      <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+       <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+
+       <div class="section">
+<div ><h2>Submenu 1-1 Heading</h2></div>
+        <div class="panel-body"><p> 1
+down vote
+
+
+In fact what you try to avoid pretty much looks like a microservice architecture (Martin Fowler article). Basically it proposes minimal self-contained services which are multiplexed to act as a whole, instead of one monolithic application. It has its pro and cons, but today it is considered more a good. At least at big scale.
+
+Thus one way of designing your application is a microservice architecture, and running several internal servers isn't a problem. Just note that some complexity in this approach is shifted to infrastructure. That is to say you need quality deployment, monitoring, etc.
+
+The idea of Andew's answer is correct. But specifically CherryPy is a full-featured HTTP server. You don't generally need another intermediate point of failure, gunicorn or so, and you can avoid WSGI altogether. Just use HTTP, i.e. nginx acts as reverse HTTP proxy to CherryPy internal HTTP servers.
+
+In simplest way it looks like the following.
+
+python 2 app</p></div>
+        <div class="panel-footer">submenu 1-1 Footer</div>
+      </div>
+{% endblock %}

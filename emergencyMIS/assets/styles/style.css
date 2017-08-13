@@ -1,0 +1,88 @@
+ body {
+      position: relative;
+  }
+  .menu{
+  	float: right;
+  }
+  .sideLeft{
+  	background: rgb(220,220,220);
+  	margin-top: 60px;
+  	margin-left: 5px;
+  	margin-right: 2px;
+  	min-height: 500px;
+  }
+  .profil-image{
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 350px;
+  max-height: 350px;
+  border-radius: 15px 50px 30px 5px;
+  float: center;
+  margin-left: 10px;
+  margin-right: 10px;
+
+}
+.profile{
+	min-height: 300px;
+	max-width: 400px;
+	border-radius: 5px;
+	background:#fff;
+	border: 2px solid #444;
+	display: block;
+	margin-top: 5px;
+}
+.profile-title, .profile-footer{
+	background: #444;
+	color:#fff;
+	padding: 0px;
+	margin:0px;
+}
+.profile-footer{
+	min-height: 50px;
+}
+.bigLink{
+	color:#fff;
+	font-weight: bold;
+	font-size: 18px;
+}
+.mediumLink{
+	color:#fff;
+	font-weight: bold;
+	font-size: 12px;
+}
+.manPanel{
+	background: rgb(240,240,240);
+  	border-radius: 5px;
+  	margin-top: 60px;
+  	margin-right: 0x;
+  	min-height: 800px;
+  	min-width: 100px;
+  	max-height: 1000px;
+  	overflow:auto;
+
+}
+.section{
+	background:#fff;
+	border-radius: 5px;
+	margin-left:5px;
+	margin-right:5px;
+	margin-top: 20px;
+}
+.footer{
+	background: #111;
+	min-height: 100px;
+
+}
+.footer-text{
+	font-style:italic;
+	font-size: 12px;
+	color:#fff;
+	margin-top: 5px;
+}
+.module-title{
+  margin-top: 0px;
+  padding-top: 0px;
+}
+a:hover{
+  color:#fff;
+}

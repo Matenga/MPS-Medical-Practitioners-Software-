@@ -1,0 +1,19 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+
+<div class="row">
+        <div class="col-md-12">
+            <div class="error-template">
+                <h1 style="font-size:60px;"> Oops!</h1>
+                <h2 style="font-size:70px;">404 Not Found</h2>
+                <div class="error-details">
+                    <h3>Sorry <span style="color:#337ab7; font-size:26px;">{{message0[0]}}</span>, an error has occured,</br> Requested Resource doesn't Exist!</h3>
+                </div>
+                <div class="error-actions">
+                    <a href="/pMO" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-home"></span>
+                        Take Me Home </a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

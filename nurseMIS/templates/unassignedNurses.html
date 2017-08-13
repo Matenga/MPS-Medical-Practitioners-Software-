@@ -1,0 +1,69 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<div class="manPanel">
+<div class="row">
+  <div class="row dashboard-title-section">
+    <center><span class="dahboard-title"> Unassigned Nurses</span></center>
+    <span class="search-top">
+    <button type="submit" style="background-image: url('static/images/icons/search.jpeg');" class="search-button"></button><input type="text" name="search" class="search-entry" placeholder="search..">
+  </span>
+  </div>
+  <center>
+<div class="row">
+  {% for mes in message %}
+<!--  </div><div class="row">-->
+    <div class="col-md-4">
+      <div class="section">
+          <div class="card"><br/>
+            <span class="card-title">Nr. {{message[loop.index-1][2]}}</span><br/><br/>
+            <span class="card-title-foot-note">( since: {{message[loop.index-1][4]}} )</span><br/>
+        <img src="static/images/staff/{{message[loop.index-1][3]}}.PNG" alt="Profile" class="card-body">
+        <div class="card-footer">
+          <table class="table">
+            <tr>
+          <th colspan="2"><span class="card-footer-content-title">Staff ID:</span></th>
+            <td colspan="2"><span class="card-footer-content">{{message[loop.index-1][0]}}</span></td>
+          </tr>
+          <tr>
+          <th colspan="2"><span class="card-footer-title">Status</span></th>
+          <td colspan="2"><span class="card-footer-content">
+            {% if message[loop.index-1][5][0]=='active' %}
+              <span class="status-active">
+            {% elif message[loop.index-1][5][0]=='On Leave' %}
+              <span class="status-on-leave">
+            {% elif message[loop.index-1][5][0]=='Account Not Activated' %}
+              <span class="status-not-activated">
+            {% else %}
+              <span class="status-in-active">
+            {% endif %}
+            {{message[loop.index-1][5][0]}}</span><br/> since:<br/>{{message[loop.index-1][5][1]}}
+          </span></td>
+        </tr></table>
+            <form action="AssignNurseToDepartmentPOST" method="POST">
+              <input type="hidden" name="staff_id" value="{{message[loop.index-1][1]}}"/>
+              <div class="department-lists-assign">
+              <table class="table">
+            {% for a,b in departments %}
+                 <tr class="row">
+                <td class="check">
+                  <input type="radio" name="department_id" value="{{a}}"/>
+                </td><td class="department">
+                  {{b}}
+                </td>
+                </tr>
+            {% endfor %}
+        </table>
+      </div>
+      <button type="submit" class="primary btn btn-primary">ASSIGN</button>
+        </form>
+        </div>
+      </div>
+    </div>
+    </div>
+  {% endfor %}
+</div>
+</center>
+</div>
+</div>
+{% endblock %}

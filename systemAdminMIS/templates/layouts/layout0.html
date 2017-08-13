@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="refresh" content="250;URL='/home'" />
+  <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="static/javascripts/jquery.min.js"></script>
+  <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/styles/style.css">
+   <link rel="stylesheet" type="text/css" href="static/styles/login.css">
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" style="background: linear-gradient(90deg, #16222A 20%, #3A6073 90%) !important;" >
+
+<div class="top-content">
+            <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Arua Regional Referral Hospital</strong><h2 style="color:white; font-size:27px;">Medical Practioners Software</h2></h1>
+                            <div class="description">
+                              
+                            </div>
+                        </div>
+                    </div>
+                    {% block content %}{% endblock %}
+
+                    <div class="row">
+                        <div class="col-sm-12  social-login" style="text-align:center;">
+                          <!--<h3>Forgot Password?... Click here to contact the Admin</h3>-->
+                          
+                            <h6 style="color:white;">Arua Regional Refferal Hospital © 2017 MPS Tools | System Privacy policy | Developed by iDealinks Africa Ltd</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <br/><br/><br/><br/>
+        </div>
+
+
+</body>
+</html>

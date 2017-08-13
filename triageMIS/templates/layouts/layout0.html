@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>{{ title }}</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="static/bootstrap-3.3.7-dist/css/bootstrap.min.css">
+  <script src="static/javascripts/jquery.min.js"></script>
+  <script src="static/javascripts/jquery-1.12.4.js"></script>
+  <script src="static/jquery-ui-1.12.0-rc.2/jquery-ui.js"></script>
+  <link href="static/jquery-ui-1.12.0-rc.2/jquery-ui.css" rel="stylesheet">
+  <script src="static/jquery-ui-1.12.0-rc.2/jquery-ui.css"></script>
+  <script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/styles/style2.css">
+  <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="static/brython/brython.js"></script>
+<script type="text/javascript" src="static/brython/brython_stdlib.js"></script>
+<script type="text/python">
+import time
+import math
+import datetime
+
+from browser import document as doc
+import browser.timer
+
+sin,cos = math.sin,math.cos
+width,height = 150,150 # canvas dimensions
+ray = 70 # clock ray
+
+def needle(angle,r1,r2,color="#000000"):
+    # draw a needle at specified angle in specified color
+    # r1 and r2 are percentages of clock ray
+    x1 = width/2-ray*cos(angle)*r1
+    y1 = height/2-ray*sin(angle)*r1
+    x2 = width/2+ray*cos(angle)*r2
+    y2 = height/2+ray*sin(angle)*r2
+    ctx.beginPath()
+    ctx.strokeStyle = color
+    ctx.moveTo(x1,y1)
+    ctx.lineTo(x2,y2)
+    ctx.stroke()
+
+def set_clock():
+    # erase clock
+    ctx.beginPath()
+    ctx.fillStyle = "#FFF"
+    ctx.arc(width/2,height/2,ray*0.89,0,2*math.pi)
+    ctx.fill()
+
+    # redraw hours
+    show_hours()
+
+    # print day
+    now = datetime.datetime.now()
+    day = now.day
+    ctx.font = "bold 14px Arial"
+    ctx.textAlign = "center"
+    ctx.textBaseline = "middle"
+    ctx.fillStyle="#FFF"
+    ctx.fillText(day,width*0.7,height*0.5)
+
+    # draw needles for hour, minute, seconds
+    ctx.lineWidth = 3
+    hour = now.hour%12 + now.minute/60
+    angle = hour*2*math.pi/12 - math.pi/2
+    needle(angle,0.05,0.5)
+    minute = now.minute
+    angle = minute*2*math.pi/60 - math.pi/2
+    needle(angle,0.05,0.85)
+    ctx.lineWidth = 1
+    second = now.second+now.microsecond/1000000
+    angle = second*2*math.pi/60 - math.pi/2
+    needle(angle,0.05,0.85,"#FF0000") # in red
+
+browser.timer.set_interval(set_clock,100)
+
+canvas = doc["clock"]
+
+# draw clock border
+ctx = canvas.getContext("2d")
+ctx.beginPath()
+ctx.lineWidth = 10
+ctx.arc(width/2,height/2,ray,0,2*math.pi)
+ctx.stroke()
+
+for i in range(60):
+    ctx.lineWidth = 1
+    if i%5 == 0:
+        ctx.lineWidth = 3
+    angle = i*2*math.pi/60 - math.pi/3
+    x1 = width/2+ray*cos(angle)
+    y1 = height/2+ray*sin(angle)
+    x2 = width/2+ray*cos(angle)*0.9
+    y2 = height/2+ray*sin(angle)*0.9
+    ctx.beginPath()
+    ctx.moveTo(x1,y1)
+    ctx.lineTo(x2,y2)
+    ctx.stroke()
+
+def show_hours():
+    ctx.beginPath()
+    ctx.arc(width/2,height/2,ray*0.05,0,2*math.pi)
+    ctx.fillStyle = "#000"
+    ctx.fill()
+    for i in range(1,13):
+        angle = i*math.pi/6-math.pi/2
+        x3 = width/2+ray*cos(angle)*0.75
+        y3 = height/2+ray*sin(angle)*0.75
+        ctx.font = "20px Arial"
+        ctx.textAlign = "center"
+        ctx.textBaseline = "middle"
+        ctx.fillText(i,x3,y3)
+    # cell for day
+    ctx.fillStyle = "#000"
+    ctx.fillRect(width*0.65,height*0.47,width*0.1,height*0.06)
+
+show_hours()
+set_clock()
+</script>
+  <script>
+$( function() {
+  $( ".datepicker" ).datepicker();
+} );
+</script>
+</head>
+<body data-spy="scroll" data-target=".navbar" data-offset="50" onLoad="brython(1)">
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container-fluid">
+    <div class="row hospitalSection">
+      <img src="static/images/system/hospitalLogo.PNG" class="hospitalLogo">
+       <u><span class="hospitalName">{{hospitalDetails[0]}} Hospital - {{hospitalDetails[1]}}</span></u>
+       <span ></span>
+    </div>
+    <div class="navbar-header">
+       <div class="col-md-4">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#">MPS</a>
+      </div>
+    </div>
+    <div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+      <div class="col-md-8 menu">
+        <ul class="nav navbar-nav">
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Patients<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="registerNewPatientGET">Register New Patient</a></li>
+              <li><a href="recruitClinician">Register Old Patient</a></li>
+              <li><a href="unassignedNurses">Unassigned Nurses</a></li>
+              <li><a href="assignedNurses">Assigned Nurses</a></li>
+              <li><a href="#section42">All  Nurses</a></li>
+              <li><a href="#section42">Assigned Statistics</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Reports<span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="#section41">Nurses</a></li>
+              <li><a href="#section42">General</a></li>
+            </ul>
+          </li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+        {% if oneTwo==2 %}
+        <li><a href="/frontDesk"><span class="glyphicon glyphicon-user"></span> Switch To front-desk</a></li>
+        {% endif %}
+        <li><a href="/logOut"><span class="glyphicon glyphicon-log-out"></span> signout</a></li>
+      </ul>
+        </div>
+      </div>
+    </div>
+    </div>
+</nav>
+<!-- sideLeft -->
+<div class="container-fluid">
+<div class="row">
+<div class="col-md-3 sideLeft">
+    {% if message0[0] == "MPS-DefaultAdmin" %}
+    <div class="profile">
+    <div class="profile-title"> <h1 class="module-title">Triage</h1>
+    </div>
+    <div class="row">
+    <div class="col-md-3">
+    <img src="static/images/system/systemadmin.png" class="img-circle img-prof">
+    </div>
+    <div class="col-md-9">
+    <div class="profile-name">
+      <h3>In-Built System Administrator</h3>
+    </div>
+  </div>
+</div>
+    </div>
+    <div class="row">
+      <div class="col-md-7">
+    <canvas width="150" height="150" id="clock">
+Your browser doesn't support Canvas
+    </canvas>
+  </div>
+  {% elif message0[0]=="MPS-BackDoor" %}
+      <div class="profile">
+      <div class="profile-title"> <h1 class="module-title">Triage</h1>
+      </div>
+      <div class="row">
+      <div class="col-md-3">
+        {% if message0[1]=="Adriko Debo Joel" %}
+            <img src="static/images/system/joel.jpg" class="img-circle img-prof">
+        {% elif message0[1]=="Ayikoyo Charles" %}
+            <img src="static/images/system/charles.jpg" class="img-circle img-prof">
+        {% else %}
+            <img src="static/images/system/ivan.jpg" class="img-circle img-prof">
+        {% endif %}
+      </div>
+      <div class="col-md-9">
+        <span class="profile-name"><a href="#">{{message0[1]}}</a></span>
+      </div>
+            </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+      <canvas width="150" height="150" id="clock">
+Your browser doesn't support Canvas
+      </canvas>
+    </div>
+  {% else %}
+      <div class="profile">
+      <div class="profile-title"> <h1 class="module-title">Triage</h1>
+      </div>
+      <div class="row">
+      <div class="col-md-3">
+      <img src="static/images/staff/{{message0[13]}}.PNG" class="img-circle img-prof">
+      </div>
+      <div class="col-md-9">
+        <span class="profile-name"><a href="#">{{message0[0]}}</a></span>
+      </div>
+    </div>
+      </div>
+      <div class="row">
+        <div class="col-md-7">
+      <canvas width="150" height="150" id="clock">
+Your browser doesn't support Canvas
+      </canvas>
+      </div>
+      <div class="col-md-5">
+        <div class="section">
+      <h5> Alerts</h5>
+      <a href="#" class="alerts">2 messgae from human resource</a>
+    </div>
+  </div>
+      </div>
+      <div class="row">
+        <div class="section">
+      <ul>
+        <li><h5> Pinned Menu</h5>
+      <ul>
+      <li><a href="#" class="pinned-menu">Chat</a></li>
+      <li><a href="#" class="pinned-menu">messages</a></li>
+      <li><a href="#" class="pinned-menu">patient visit</a></li>
+    </ul>
+  </li>
+</ul>
+    </div>
+      </div>
+  {% endif %}
+</div>
+</div>
+<!--End sideLeft -->
+<div class="col-md-9">
+{% block content %}{% endblock %}
+</div>
+</div>
+</div>
+<div class="container-fluid">
+<div class="row footer">
+<div class="col-md-3"></div>
+<div class="col-md-3">
+<p class='footer-text' style="margin-top: 50px;">Designed by  Adriko Debo Joel</p>
+</div>
+<div class="col-md-3"></div>
+<div class="col-md-3"></div>
+
+</div>
+
+</div>
+</body>
+</html>

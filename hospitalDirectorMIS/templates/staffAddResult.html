@@ -1,0 +1,41 @@
+{% extends 'layouts/layout2.html' %}
+{% block content %}
+<!--dashboard -->
+<div class="manPanel">
+<div class="row">
+  <center>
+  <div class="col-md-4">
+  <div class="section">
+    {% if message[4]==1 and message[5]==1 %}
+      <div class="card">
+        <span class="operator">
+          {% if message[8]=="Doctor" %}
+              Dr. {{message[0]}}
+          {% elif message[8]=="Nurse" %}
+              Nr. {{message[0]}}
+          {% else %}
+              {{message[0]}}
+          {% endif %}
+        </span><br/>
+    <img src="static/images/staff/{{message[6]}}.PNG" alt="Profile" style="height:300px;width:100%;">
+    <div class="card-footer">
+      <table class="table"><tr>
+      <td><b>ID: </b></td><td><span class="operandRight">{{message[1]}}</span></td>
+    </tr><tr>
+      <td><b>Appointment No: </b></td><td><span class="operandLeft">{{message[2]}}</span></td>
+    </tr><tr>
+      <td><b>Appointment Date: </b></td><td><span class="operandLeft">{{message[3]}}</span></td>
+      </tr><tr>
+      <td><b>Created on: </b></td><td><span>{{message[7]}}</span></td>
+    </tr></table>
+    </div>
+  </div>
+  {% elif message[5]==0 %}
+   <span class="operandRight">There are already three system Administrator in the system</span>
+{% endif %}
+  </div>
+</div>
+</center>
+</div>
+</div>
+{% endblock %}

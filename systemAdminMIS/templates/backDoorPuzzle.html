@@ -1,0 +1,39 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<link rel="stylesheet" type="text/css" href="static/styles/form-elements.css">
+
+
+<div class="col-sm-6 col-sm-offset-3 form-box">
+  <div class="form-top">
+    <div class="form-top-left" style="width:100% !important; ">
+      <h2 style="text-align:center;">Please Solve The puzzle Below</h2>
+      <h4 style="color:white;">you Have {{puzzle[3]}} Trials left</h4>
+
+        
+    </div>
+    
+    <div class="form-top-right">
+      <i class="fa fa-lock"></i>
+    </div>
+    </div>
+    <div class="form-bottom">
+      <span style="color:red; text-align:center;">{{unMatchedDetails}}</span>
+  <form role="form" action="checkPuzzleSolution" method="POST" class="login-form">
+      <center>
+      <p><span class="operandLeft">{{puzzle[0]}}</span><span class="operator">{{puzzle[1]}}</span> <span class="operandRight">{{puzzle[2]}}</span></p><br />
+        <input type="hidden" name="operator" value="{{puzzle[1]}}"/>
+        <input type="hidden" name="operandLeft" value="{{puzzle[0]}}"/>
+        <input type="hidden" name="operandRight" value="{{puzzle[2]}}"/>
+        <input type="hidden" name="trials" value="{{puzzle[3]}}"/>
+        <input type="password" placeholder="Your Solution" name="solution"><br />
+      </center>
+      <br/>
+      <button type="submit" class="btn">Log in!</button>
+
+  </form><br/>
+       
+</div>
+</div>
+{% endblock %}

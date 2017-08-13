@@ -1,0 +1,36 @@
+{% extends 'layouts/duoAccount.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<div class="col-md-5 login-form">
+<div class="section">
+  <div id="login">
+  <span ><i class="fa fa-spinner fa-5x fa-spin waiting" aria-hidden="true"></i></span>
+  <span class="operator">Hello {{message[0]}}</span><br/><br/>
+  <span class="operandRight">You have been assigned two accounts, please select the one you would like to access</span>
+</div>
+<div class="row">
+  <div class="col-md-5">
+    <form action="duoAccountDispatcherPOST" method="POST">
+      <button type="submit" style="border-radius: 5px;border: 5px groove rgb(250,100,100);height:250px;width: 210px;background:rgb(250,100,100);padding-top: 10px;">
+    <span style="font-size: 18px;color:#fff;padding-top:250px;font-style: bold;">
+      FRONT DESK
+    </span>
+  </button>
+    <input type="hidden" name="accountId" value="D000"/>
+  </form>
+  </div>
+  <div class="col-md-5">
+    <form action="duoAccountDispatcherPOST" method="POST">
+    <button type="submit" style="border-radius: 5px;border: 5px groove rgb(100,100,150);height:250px;width: 210px;background:rgb(100,100,250);padding-top: 10px;">
+    <span style="font-size: 25px;color:#fff;padding-top:250px;font-style: bold;">
+      TRAIGE
+    </span>
+  </button>
+    <input type="hidden" name="accountId" value="D001"/>
+  </form>
+  </div>
+</div>
+</div>
+</div>
+{% endblock %}

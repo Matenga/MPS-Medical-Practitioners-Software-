@@ -1,0 +1,55 @@
+{% extends 'layouts/layout0.html' %}
+{% block content %}
+<!--dashboard -->
+<link rel="stylesheet" type="text/css" href="static/styles/form0.css">
+<link rel="stylesheet" type="text/css" href="static/styles/form-elements.css">
+ <link rel="stylesheet" href="static/font-awesome-4.7.0/css/font-awesome.min.css">
+
+<div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                        	<div class="form-top">
+                        		<div class="form-top-left">
+                        			<h3 style="text-align:left;">Welcome...</h3>
+                            		<p style="text-align:left;">Enter your username and password to login:</p>
+                        		</div>
+                           
+                        		<div class="form-top-right">
+                        			<i class="fa fa-lock"></i>
+                        		</div>
+                            </div>
+                            <div class="form-bottom">
+                              <span style="color:red; text-align:center;">{{unMatchedDetails}}</span>
+			                    <form role="form" action="home" method="post" class="login-form">
+			                    	<div class="form-group">
+			                    		<label class="sr-only" for="form-username">Username</label>
+			                        	<input type="text" id="username" name="username" placeholder="Username..." class="form-username form-control" id="form-username">
+			                        </div>
+			                        <div class="form-group">
+			                        	<label class="sr-only" for="form-password">Password</label>
+			                        	<input type="password" name="password_" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+			                        </div>
+			                        <button type="submit" class="btn">Log in!</button>
+			                    </form><br/>
+                                <h5 style="color:white; text-align: center;">Forgot Password?... <a>Click here to contact the Admin</a></h5>
+		                    </div>
+                        </div>
+                    </div><br/><br/>
+
+                    {% endblock %}
+
+
+
+<!--<div class="col-md-5 login-form">
+<div class="section">
+  <div id="login">
+  <h1 id="header">Login</h1>
+  {{unMatchedDetails}}
+  <form action="home" method="POST">
+    <input type="text" placeholder="Username" id="username" name="username"><br />
+    <input type="password" placeholder="Password" name="password_"><br />
+    <button type="submit">submit </button>
+  </form>
+</div>
+</div>
+</div>-->
+
